@@ -6,7 +6,8 @@ metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
 })
 
-db = SQLAlchemy(metadata=metadata)
+db = SQLAlchemy()
+
 
 class Bakery(db.Model, SerializerMixin):
     __tablename__ = 'bakeries'
@@ -22,6 +23,7 @@ class Bakery(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<Bakery {self.name}>'
+
 
 class BakedGood(db.Model, SerializerMixin):
     __tablename__ = 'baked_goods'
